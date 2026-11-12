@@ -1,0 +1,10 @@
+{
+  "name": "ICU.Assignment.PlayModeTests",
+  "rootNamespace": "",
+  "references": [
+    "ICU.Assignment.Runtime"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

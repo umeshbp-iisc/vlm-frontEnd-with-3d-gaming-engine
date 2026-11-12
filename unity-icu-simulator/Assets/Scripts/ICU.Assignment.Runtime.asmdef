@@ -1,0 +1,7 @@
+{
+  "name": "ICU.Assignment.Runtime",
+  "rootNamespace": "",
+  "references": [
+    "Unity.AI.Navigation"
+  ]
+}

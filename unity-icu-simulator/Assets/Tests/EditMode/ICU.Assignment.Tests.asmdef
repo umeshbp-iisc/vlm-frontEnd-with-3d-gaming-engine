@@ -1,0 +1,13 @@
+{
+  "name": "ICU.Assignment.Tests",
+  "rootNamespace": "",
+  "references": [
+    "ICU.Assignment.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
