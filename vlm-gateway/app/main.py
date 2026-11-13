@@ -151,7 +151,8 @@ _DEVICE_ACTIONS = {
 def _target_for_instruction(instruction: str, world: WorldState) -> SceneObject | None:
     text = instruction.lower()
     aliases = {
-        "bed_01": ("bed", "patient bed"),
+        "bed_01": ("patient bed", "first bed", "bed 1", "bed one"),
+        "bed_02": ("patient bed 2", "second bed", "bed 2", "bed two", "second patient bed"),
         "med_platform_01": (
             "medical platform",
             "med platform",
@@ -162,6 +163,8 @@ def _target_for_instruction(instruction: str, world: WorldState) -> SceneObject 
         "monitor_01": ("monitor",),
         "supply_box_red": ("red supply box", "red box", "supply box red"),
         "supply_box_blue": ("blue supply box", "blue box", "supply box blue"),
+        "medicine_cabinet_01": ("medicine cabinet", "cabinet", "drug cabinet"),
+        "waste_bin_01": ("waste bin", "bin", "trash", "rubbish bin"),
     }
     objects = {obj.id: obj for obj in world.objects}
     for object_id, names in aliases.items():
@@ -383,7 +386,7 @@ class OllamaVisionAdapter:
         self._base_url = base_url.rstrip("/")
 
     async def is_available(self) -> bool:
-        async with httpx.AsyncClient(timeout=2.0) as client:
+        async with httpx.AsyncClient(timeout=2.0, proxy=None) as client:
             response = await client.get(f"{self._base_url}/api/tags")
             response.raise_for_status()
             names = {model["name"] for model in response.json().get("models", [])}

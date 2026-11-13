@@ -33,7 +33,7 @@ public sealed class ICURuntimeSmokeTests
     [UnityTest]
     public IEnumerator RobotPicksPlacesAndReturnsHome()
     {
-        ICUSimulationController controller = Object.FindFirstObjectByType<ICUSimulationController>();
+        ICUSimulationController controller = Object.FindAnyObjectByType<ICUSimulationController>();
         GameObject box = GameObject.Find("Red Supply Box");
         yield return RunPlan(controller,
             Action(1, "MOVE_TO", "supply_box_red"),
@@ -64,7 +64,7 @@ public sealed class ICURuntimeSmokeTests
     [UnityTest]
     public IEnumerator RobotReachesElevatedDevicesAndChangesTheirStates()
     {
-        ICUSimulationController controller = Object.FindFirstObjectByType<ICUSimulationController>();
+        ICUSimulationController controller = Object.FindAnyObjectByType<ICUSimulationController>();
         yield return RunPlan(controller,
             Action(1, "MOVE_TO", "monitor_01"),
             Action(2, "DEVICE_POWER_ON", "monitor_01"),
@@ -85,7 +85,7 @@ public sealed class ICURuntimeSmokeTests
         {
             Assert.Ignore("Set ICU_TEST_LIVE_GATEWAY=1 with the gateway and Ollama running.");
         }
-        ICUSimulationController controller = Object.FindFirstObjectByType<ICUSimulationController>();
+        ICUSimulationController controller = Object.FindAnyObjectByType<ICUSimulationController>();
         const BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic;
         Camera camera = GameObject.Find("Robot Camera").GetComponent<Camera>();
         RenderTexture target = RenderTexture.GetTemporary(640, 360, 16);

@@ -1,0 +1,6 @@
+﻿<Solution>
+  <Project Path="ICU.Assignment.PlayModeTests.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="ICU.Assignment.Runtime.csproj" />
+  <Project Path="ICU.Assignment.Tests.csproj" />
+</Solution>
